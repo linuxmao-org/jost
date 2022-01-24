@@ -1,0 +1,16 @@
+#!/bin/bash
+
+file="--file premake.lua"
+options="--cc gcc --target gnu --os linux"
+
+if [ $# = 1 ]; then
+	if [ "$1" = "--help" ]; then
+	    premake --help
+		exit 0
+	fi
+elif [ $# = 0 ]; then
+	premake $file $options
+	exit 0
+fi
+
+premake $file $options $@
